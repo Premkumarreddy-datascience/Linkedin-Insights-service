@@ -83,7 +83,7 @@ Linkedin-Insights-service/
 │   ├── test_pages.py
 │   ├── test_posts.py
 │   └── test_search.py
-├── images/ Screenshots of working APIs
+├── images/  #Screenshots of working APIs
 └── README.md
 ```
 
