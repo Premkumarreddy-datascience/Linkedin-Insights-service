@@ -1,16 +1,9 @@
-FROM python:3.10
-
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    gcc \
-    libffi-dev \
-    libssl-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+FROM python:3.10-bullseye
 
 WORKDIR /app
+
+ENV PIP_ONLY_BINARY=:all:
+ENV PIP_NO_BUILD_ISOLATION=1
 
 COPY requirements.txt .
 
