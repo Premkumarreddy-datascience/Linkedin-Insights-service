@@ -2,9 +2,15 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app.api.endpoints import router
+import os
+import uvicorn
 
-# Create database tables
-Base.metadata.create_all(bind=engine)
+
+if os.getenv("ENV") != "production":
+    Base.metadata.create_all(bind=engine)
+
+
+
 
 app = FastAPI(
     title="LinkedIn Insights Service",
@@ -43,3 +49,10 @@ def read_root():
 @app.get("/health")
 def health_check():
     return {"status": "healthy", "service": "linkedin-insights"}
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "app.main:app",
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8000))
+    ) 
