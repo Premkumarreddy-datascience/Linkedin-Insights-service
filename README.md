@@ -1,4 +1,4 @@
-# LinkedIn Insights API
+# Linkedin Insights Service
 
 A **production-style FastAPI backend** that scrapes, stores, and analyzes LinkedIn company data such as **company pages, posts, employees, and engagement metrics**.
 
@@ -6,7 +6,7 @@ This project is designed with **clean architecture**, **service-layer abstractio
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 -  Fetch or scrape LinkedIn company pages
 -  Store and retrieve company posts
@@ -44,10 +44,10 @@ The project uses a modern, production-ready technology stack focused on performa
 | OS | Windows / Linux | Development & deployment environments |
 
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-Linkedin Insights service/
+Linkedin-Insights-service/
 ├── app/
 │   ├── __init__.py
 │   ├── main.py
@@ -85,14 +85,54 @@ Linkedin Insights service/
 │   └── test_search.py
 └── README.md
 ```
+
+## Requirements
+- Python 3.9+
+- MySQL 8.0+  
+- Docker & Docker Compose
+- Minimum 4 GB RAM
+- Git
+- Postman
+- Ports 8000, 3307, 6379 available
+
+## Database Schema
+
+The project uses MySQL with the following core tables:
+- pages
+- posts
+- comments
+- social_media_users
+
+Each table is linked using foreign keys for relational integrity.
+
+## Configuration
+
+### Environment Vaiables
+Create .env file:
+```bash
+#Database
+DATABASE_URL=mysql+pymysql://username:password@db:3307/linkedin_db
+REDIS_URL=redis://redis:6379/0
+#Scraping
+SCRAPE_TIMEOUT=30
+MAX_POSTS_PER_PAGE=25
+CACHE_TTL=3600
+EOF
+```
+
 ##  Quick Start
 
-### 1. Start the Application
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Start the Application
 
 ```bash
 # Clone/Create project folder
 git clone <repo-url>   # or create manually
-cd Linkedin_Insights_Service_API
+cd Linkedin-Insights_service
 
 # Start all services
 docker-compose up -d
@@ -100,7 +140,8 @@ docker-compose up -d
 # Check status
 docker-compose ps
 ```
-### 2. Verify It's Working
+
+### 3. Verify It's Working
 
 ```bash
 # Test the API
@@ -113,7 +154,7 @@ curl http://localhost:8000/
 # Browser: http://localhost:8000/docs
 ```
 
-### 3. View Logs
+### 4. View Logs
 ```bash
 # view all logs
 docker=-compose lgs
@@ -126,7 +167,7 @@ docker-compose logs db
 docker-compose logs redis
 ```
 
-### Check Database
+## Check Database
 ```bash
 # Connect to MySQL
 docker-compose exec db mysql -uroot -p linkedin_db
@@ -160,20 +201,6 @@ SELECT page_id, COUNT(*) FROM posts GROUP BY page_id;
 SELECT page_id, COUNT(*) FROM social_media_users GROUP BY page_id;
 ```
 
-## Configuration
-
-### Environment Vaiables
-Create .env file:
-```bash
-#Database
-DATABASE_URL=mysql+pymysql://username:password@db:3307/sample_database
-REDIS_URL=redis://redis:6379/0
-#Scraping
-SCRAPE_TIMEOUT=30
-MAX_POSTS_PER_PAGE=25
-CACHE_TTL=3600
-EOF
-```
 
 ## Access Points
 
@@ -236,10 +263,7 @@ page_id = google
 ```
 Change page_id to test any company
 
-## Requirements
-- Docker & Docker Compose
-- Minimum 4 GB RAM
-- Ports 8000, 3307, 6379 available
+
 
 
 
