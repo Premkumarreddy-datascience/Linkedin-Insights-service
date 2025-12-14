@@ -87,13 +87,36 @@ Linkedin-Insights-service/
 ```
 
 ## Requirements
-- Python 3.9+
-- MySQL 8.0+  
-- Docker & Docker Compose
-- Minimum 4 GB RAM
+
+To run this project successfully, ensure the following software and system requirements are met.
+
+### Software Requirements
+- Python **3.9 or higher**
+- MySQL **8.0 or higher**
+- Docker **20+**
+- Docker Compose **v2+**
 - Git
-- Postman
-- Ports 8000, 3307, 6379 available
+- Postman (for API testing)
+
+### Python Dependencies
+All required Python packages are listed in `requirements.txt`
+
+### System Requirements
+- Minimum **4 GB RAM** (8 GB recommended)
+- Minimum **10 GB free disk space**
+- Stable internet connection (for scraping)
+
+### Network / Port Requirements
+Ensure the following ports are available:
+- **8000** → FastAPI service
+- **3307** → MySQL database
+- **6379** → Redis (optional)
+
+### Supported Operating Systems
+- Windows 10 / 11
+- Linux (Ubuntu 20.04+ recommended)
+- macOS (Docker-based)
+
 
 ## Database Schema
 
