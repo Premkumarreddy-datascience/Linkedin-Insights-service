@@ -83,6 +83,7 @@ Linkedin-Insights-service/
 │   ├── test_pages.py
 │   ├── test_posts.py
 │   └── test_search.py
+├── images/ Screenshots of working APIs
 └── README.md
 ```
 
@@ -162,6 +163,20 @@ docker-compose up -d
 # Check status
 docker-compose ps
 ```
+####  Process Status
+<p align="center">
+  <img src="images/process status.png" width="800"/>
+</p>
+
+####  Docker Containers
+<p align="center">
+  <img src="images/docker containers.png" width="800"/>
+</p>
+
+####  Docker Images
+<p align="center">
+  <img src="images/docker images.png" width="800"/>
+</p>
 
 ### 3. Verify It's Working
 
