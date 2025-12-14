@@ -165,17 +165,17 @@ docker-compose ps
 ```
 ####  Process Status
 <p align="center">
-  <img src="images/process status.png" width="800"/>
+  <img src="images/process_status.png" width="800"/>
 </p>
 
 ####  Docker Containers
 <p align="center">
-  <img src="images/docker containers.png" width="800"/>
+  <img src="images/docker_container.png" width="800"/>
 </p>
 
 ####  Docker Images
 <p align="center">
-  <img src="images/docker images.png" width="800"/>
+  <img src="images/docker_images.png" width="800"/>
 </p>
 
 ### 3. Verify It's Working
@@ -190,6 +190,14 @@ curl http://localhost:8000/
 # Open API documentation
 # Browser: http://localhost:8000/docs
 ```
+
+#### Swagger UI
+<p align="center">
+  <img src="images/api_doc_output1.png" width="800"/>
+</p>
+<p align="center">
+  <img src="images/api_doc_output2.png" width="800"/>
+</p>
 
 ### 4. View Logs
 ```bash
@@ -299,7 +307,9 @@ base_url = http://localhost:8000/api/v1
 page_id = google
 ```
 Change page_id to test any company
-
+<p align="center">
+  <img src="images/postman_output.png" width="800"/>
+</p>
 
 
 
