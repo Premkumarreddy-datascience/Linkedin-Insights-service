@@ -42,6 +42,7 @@ The project uses a modern, production-ready technology stack focused on performa
 | Version Control | Git | Source code version control |
 | IDE / Editor | VS Code | Development environment |
 | OS | Windows / Linux | Development & deployment environments |
+| CI/CD | Railway Auto Deploy (GitHub Integration) |
 
 
 ## Project Structure
@@ -314,7 +315,32 @@ Change page_id to test any company
   <img src="images/postman_output.png" width="800"/>
 </p>
 
+## Deployment Status
+**Successfully Deployed using Railway**
 
+The entire application has been containerized and deployed on **Railway**, enabling:
+- Cloud-hosted backend availability
+- Automatic builds from GitHub
+- Environment variable management
+- Scalable infrastructure
+- Public API access
 
+###  Live Deployment
 
+- **Platform**: Railway  
+- **Deployment Type**: Cloud-based Docker deployment  
+- **Status**: Live & Running
+
+### Environment Configuration
+
+All sensitive configurations are managed using **Railway Environment Variables**, including:
+- Database credentials
+- Redis configuration
+- Application secrets
+- External service keys
+
+No credentials are hard-coded in the repository.
+
+### Base URL
+https://linkedin-insights-service-production.up.railway.app/docs
 
