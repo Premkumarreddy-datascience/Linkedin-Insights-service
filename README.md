@@ -330,6 +330,9 @@ The entire application has been containerized and deployed on **Railway**, enabl
 - **Platform**: Railway  
 - **Deployment Type**: Cloud-based Docker deployment  
 - **Status**: Live & Running
+<p align="center">
+  <img src="images/railway_deployment.png" width="800"/>
+</p>
 
 ### Environment Configuration
 
@@ -343,4 +346,10 @@ No credentials are hard-coded in the repository.
 
 ### Base URL
 https://linkedin-insights-service-production.up.railway.app/docs
+
+##  Author
+
+**K. Prem Kumar Reddy**  
+M.Tech Data Science  
+Jain (Deemed-to-be) University
 
