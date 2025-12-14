@@ -78,7 +78,7 @@ Linkedin-Insights-service/
 ├── .env
 ├── Postman Collection.json
 ├── tests/
-│   ├── __init__.py
+│   ├── conftest.py
 │   ├── test_health.py
 │   ├── test_pages.py
 │   ├── test_posts.py
