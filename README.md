@@ -298,6 +298,9 @@ GET /api/v1/pages/{page_id}/employees/recent
 docker-compose exec web pytest
 ```
 This will test Database Connection and all Service Layers
+<p align="center">
+  <img src="images/testing.png" width="800"/>
+</p>
 
 ## Postman Usage
 - Import Postman Collection.JSON file into Postman
