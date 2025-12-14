@@ -37,8 +37,8 @@ The project uses a modern, production-ready technology stack focused on performa
 | Async HTTP Client | HTTPX | Used for API testing |
 | Environment Management | python-dotenv | Load environment variables securely |
 | Migrations | Alembic | Database schema migrations |
-| Message Broker (Optional) | Redis | Used with Celery for async tasks |
-| Containerization (Optional) | Docker | Application containerization |
+| Message Broker | Redis | Used with Celery for async tasks |
+| Containerization | Docker | Application containerization |
 | Version Control | Git | Source code version control |
 | IDE / Editor | VS Code | Development environment |
 | OS | Windows / Linux | Development & deployment environments |
@@ -107,7 +107,7 @@ Each table is linked using foreign keys for relational integrity.
 
 ## Configuration
 
-### Environment Vaiables
+### Environment Variables
 Create .env file:
 ```bash
 #Database
@@ -117,7 +117,6 @@ REDIS_URL=redis://redis:6379/0
 SCRAPE_TIMEOUT=30
 MAX_POSTS_PER_PAGE=25
 CACHE_TTL=3600
-EOF
 ```
 
 ##  Quick Start
@@ -132,7 +131,7 @@ pip install -r requirements.txt
 ```bash
 # Clone/Create project folder
 git clone <repo-url>   # or create manually
-cd Linkedin-Insights_service
+cd Linkedin-Insights-service
 
 # Start all services
 docker-compose up -d
@@ -157,7 +156,7 @@ curl http://localhost:8000/
 ### 4. View Logs
 ```bash
 # view all logs
-docker=-compose lgs
+docker-compose logs
 
 # Follow web service logs
 docker-compose logs -f web
