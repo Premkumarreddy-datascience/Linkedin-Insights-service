@@ -1,10 +1,13 @@
 FROM python:3.10
 
+# Install system lxml (prebuilt, stable)
 RUN apt-get update && apt-get install -y \
+    python3-lxml \
     build-essential \
-    libxml2-dev \
-    libxslt1-dev \
     python3-dev \
+    libxml2 \
+    libxslt1.1 \
+    zlib1g \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
