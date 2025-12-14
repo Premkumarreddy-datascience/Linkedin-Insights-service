@@ -1,0 +1,183 @@
+{
+  "info": {
+    "_postman_id": "d5c3e2f1-9c4a-4e8a-9b12-778899001122",
+    "name": "LinkedIn Insights API (Dynamic)",
+    "description": "Postman collection for LinkedIn Insights FastAPI project using dynamic page_id",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api/v1"
+    },
+    {
+      "key": "page_id",
+      "value": "deepsolv"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health - Database",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/health/db",
+          "host": ["{{base_url}}"],
+          "path": ["health", "db"]
+        }
+      }
+    },
+    {
+      "name": "Get Page (Scrape if Needed)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}?refresh=false",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}"],
+          "query": [
+            { "key": "refresh", "value": "false" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Pages",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages?industry=Technology&page=1&limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["pages"],
+          "query": [
+            { "key": "industry", "value": "Technology" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Recent Posts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/posts/recent?limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "posts", "recent"],
+          "query": [
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Posts With Comments",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/posts/with-comments?limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "posts", "with-comments"],
+          "query": [
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Top Posts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/top-posts?days=30&limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "top-posts"],
+          "query": [
+            { "key": "days", "value": "30" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Engagement Stats",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/engagement",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "engagement"]
+        }
+      }
+    },
+    {
+      "name": "Search Posts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/posts/search?keyword=AI&limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "posts", "search"],
+          "query": [
+            { "key": "keyword", "value": "AI" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Employees",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/employees?limit=10",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "employees"],
+          "query": [
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Employees",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/employees/search?position=engineer",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "employees", "search"],
+          "query": [
+            { "key": "position", "value": "engineer" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Employee Distribution",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/employees/distribution",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "employees", "distribution"]
+        }
+      }
+    },
+    {
+      "name": "Recently Added Employees",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/pages/{{page_id}}/employees/recent?limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["pages", "{{page_id}}", "employees", "recent"],
+          "query": [
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+services:
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: linkedin_mysql
+    ports:
+      - "3307:3306"  # External: 3307, Internal: 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: linkedin_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: linkedin_redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Application
+  web:
+    build: .
+    container_name: linkedin_web
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:root123@db:3306/linkedin_db
+      - REDIS_URL=redis://redis:6379/0
+      - PYTHONPATH=/app  
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - .:/app  
+      - ./requirements.txt:/app/requirements.txt
+    restart: unless-stopped
+    command: >
+      sh -c "sleep 3 &&
+             pip install -r requirements.txt &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+volumes:
+  mysql_data:
