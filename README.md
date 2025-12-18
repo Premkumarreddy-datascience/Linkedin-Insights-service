@@ -1,4 +1,4 @@
-# Linkedin Insights Service
+# LinkedIn Data Scraper & Analytics Service
 
 A **production-style FastAPI backend** that scrapes, stores, and analyzes LinkedIn company data such as **company pages, posts, employees, and engagement metrics**.
 
